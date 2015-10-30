@@ -10,12 +10,13 @@ app.config(function($routeProvider) {
     })
     .when('/get-started', {
       templateUrl: 'partials/get-started.html',
+      controller: 'GetStartedCtrl',
       name: 'Get started',
       icon: 'fa-caret-square-o-right'
     })
     .when('/examples', {
       templateUrl: 'partials/examples.html',
-      controller: 'DownloadCtrl',
+      controller: 'ExamplesCtrl',
       name: 'Examples',
       icon: 'fa-cubes'
     })

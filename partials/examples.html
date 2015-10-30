@@ -1,32 +1,26 @@
-<div>
-  <div class="page-header">
-    <h3>via Build Tools</h3>
+<div class="row">
+  <div></div>
+  <div class="col-md-2">
+    <div class="sticky sidebar">
+      <ul class="nav nav-pills nav-stacked">
+        <li ng-repeat="category in examples">
+          <a ng-click="gotoAnchor(category.anchor)">{{category.name}}</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <uib-tabset>
-    <uib-tab ng-repeat="module in modules">
-      <tab-heading>{{module.name}}</tab-heading>
-      <table class="table">
-        <thead>
-        <tr>
-          <th></th>
-          <th>Maven</th>
-          <th>Gradle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="artifact in module.artifacts">
-          <td class="col-md-3">
-            <h4>{{artifact.name}}</h4>
-          </td>
-          <td class="col-md-4">
-            <pre>{{artifact | build: 'maven'}}</pre>
-          </td>
-          <td class="col-md-4">
-            <pre>{{artifact | build: 'gradle'}}</pre>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </uib-tab>
-  </uib-tabset>
+  <div class="col-md-10">
+    <div ng-repeat="category in examples">
+      <div class="page-header" id="{{category.anchor}}">
+        <h3>{{category.name}} <a target="_blank" ng-href="{{category.url}}" title="View Full Source Code"><i class="fa fa-github highlight fa-2x"></i></a></h3>
+      </div>
+      <div ng-repeat="example in category.examples">
+        <h4>{{example.name}}</h4>
+        <source-loader url="category.url" method="example.method"></source-loader>
+        <br/>
+      </div>
+      <br/>
+      <br/>
+    </div>
+  </div>
 </div>
