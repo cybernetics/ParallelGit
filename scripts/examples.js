@@ -16,8 +16,19 @@ app.controller('ExamplesCtrl', function($scope, $location, $timeout, $anchorScro
     module: 'utils',
     testClass: 'OpenRepositoryTest',
     examples: [{
-      name: 'Auto Detect and Open Repository',
-      method: 'autoDetectAndOpenRepository'
+      name: 'Auto Detect and Open Bare Repository',
+      method: 'autoDetectAndOpenBareRepository'
+    }, {
+      name: 'Auto Detect and Open Non-Bare Repository',
+      method: 'autoDetectAndOpenNonBareRepository'
+    }]
+  }, {
+    name: 'Change Settings',
+    module: 'utils',
+    testClass: 'ChangeRepositorySettingsTest',
+    examples: [{
+      name: 'Change Default Committer',
+      method: 'changeDefaultCommitter'
     }]
   }, {
     name: 'Create Branch',
